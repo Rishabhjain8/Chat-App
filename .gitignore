@@ -10,6 +10,7 @@
 /build
 /models
 /routes
+/public
 
 # misc
 .DS_Store
