@@ -21,6 +21,9 @@ color: white;
 gap: 0rem;
 img{
     height: 20rem;
+    @media screen and (min-width: 300px) and (max-width: 719px) {
+      width: 100%;
+    }
 }
 span{
     color: #1b0cad;

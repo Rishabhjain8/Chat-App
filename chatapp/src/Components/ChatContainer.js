@@ -23,7 +23,7 @@ const ChatContainer = ({ currentChat, currentUser, socket }) => {
         })
 
         const msgs = [...messages];
-        msgs.push({ fromSelf: true, message: msg });
+        msgs.push({ fromSelf: true, message: msg, id: msg._id });
         setMessages(msgs);
 
     }
@@ -31,7 +31,7 @@ const ChatContainer = ({ currentChat, currentUser, socket }) => {
     useEffect(() => {
         if (socket.current) {
             socket.current.on('msg-receive', (msg) => {
-                setArrivalMessage({ fromSelf: false, message: msg });
+                setArrivalMessage({ fromSelf: false, message: msg, id: msg._id });
             })
         }
     }, [])
@@ -87,6 +87,7 @@ const ChatContainer = ({ currentChat, currentUser, socket }) => {
                                             <div className={`message ${message.fromSelf ? "sended" : "received"}`}>
                                                 <div className="content">
                                                     <p>{message.message}</p>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -104,8 +105,9 @@ const ChatContainer = ({ currentChat, currentUser, socket }) => {
 
 const Container = styled.div`
 display: grid;
-grid-template-rows: 10% 80% 10%;
+grid-template-rows: 15% 75% 10%;
 gap: 0.1rem;
+flex-wrap: wrap;
 overflow: hidden;
 @media screen and (min-width: 720px) and (max-width: 1080px) {
   grid-template-rows: 15% 70% 15%;
@@ -150,6 +152,8 @@ overflow: hidden;
       display: flex;
       align-items: center;
       .content {
+        display: flex;
+        gap: 0.5rem;
         max-width: 40%;
         overflow-wrap: break-word;
         padding: 1rem;

@@ -77,7 +77,7 @@ const Chat = () => {
 
 const Container = styled.div`
 height: 100vh;
-width: 100vw;
+width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -85,13 +85,17 @@ align-items: center;
 gap: 1rem;
 background-color: #0c0e21;
 .container{
-  height: 85vh;
-  width: 85vw;
+  height: 80vh;
+  width: 80vw;
   background-color: #030117;
   display: grid;
-  grid-template-columns: 25% 75%;
-  @media screen and (min-width: 720px) and (max-width: 1080px) {
-    grid-template-columns: 35% 65%;
+  @media screen and (min-width: 300px) and (max-width: 719px) {
+    height: 95%;
+    width: 90%;
+    grid-template-rows: 35% 65%;
+  }
+  @media screen and (min-width: 720px){
+    grid-template-columns: 30% 70%;
   }
 }
 `

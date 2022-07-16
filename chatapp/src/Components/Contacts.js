@@ -65,16 +65,24 @@ const Contacts = ({ contacts, currentUser, changeChat }) => {
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 75% 15%;
-  overflow: hidden;
+  grid-template-rows: 15% 70% 15%;
+  overflow: auto;
   background-color: #04011f;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    &-thumb {
+      background-color: #1505a3;
+      width: 0.1rem;
+      border-radius: 1rem;
+    }
+  }
   .brand {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
     img {
-      height: 2rem;
+      height: 1.5rem;
     }
     h3 {
       color: white;
@@ -108,7 +116,7 @@ const Container = styled.div`
       transition: 0.5s ease-in-out;
       .avatar {
         img {
-          height: 3rem;
+          height: 2rem;
         }
       }
       .username {
@@ -129,7 +137,7 @@ const Container = styled.div`
     gap: 2rem;
     .avatar {
       img {
-        height: 4rem;
+        height: 3rem;
         max-inline-size: 100%;
       }
     }
